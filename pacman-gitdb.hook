@@ -1,0 +1,14 @@
+# Has a list of packages, asks user to commit an explanation of the package installed
+# DOESNT WORK https://bbs.archlinux.org/viewtopic.php?id=255944
+[Trigger]
+Operation = Install
+Operation= Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Updating git files... Prepare to commit.
+Exec = /usr/local/bin/pacman-gitdb.sh
+When = PostTransaction
+Depends = git
+Depends = coreutils
